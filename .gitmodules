@@ -1,0 +1,15 @@
+[submodule "vim/pack/newellista/start/vim-ruby"]
+	path = vim/pack/newellista/start/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "vim/pack/newellista/start/ag"]
+	path = vim/pack/newellista/start/ag
+	url = https://github.com/rking/ag.vim
+[submodule "vim/pack/newellista/start/vim-elixir"]
+	path = vim/pack/newellista/start/vim-elixir
+	url = git@github.com:elixir-lang/vim-elixir.git
+[submodule "vim/pack/newellista/start/vim-mkdir"]
+	path = vim/pack/newellista/start/vim-mkdir
+	url = git@github.com:pbrisbin/vim-mkdir.git
+[submodule "vim/pack/newellista/start/vim-airline"]
+	path = vim/pack/newellista/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
