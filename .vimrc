@@ -5,6 +5,7 @@ packloadall
 " BASIC EDITING STUFF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set t_Co=256
 set nocompatible
 " allow unsaved background buffers and remember marks/undo for them
 set hidden
@@ -54,7 +55,7 @@ let maplocalleader="\\"
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
-colorscheme tender
+colorscheme minimalist
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEY MAPPINGS 
@@ -266,4 +267,6 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-let g:palenight_terminal_italics=1
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1

@@ -34,3 +34,9 @@
 [submodule "vim/pack/newellista/start/tender"]
 	path = vim/pack/newellista/start/tender
 	url = git@github.com:jacoborus/tender.vim.git
+[submodule "vim/pack/newellista/start/vim-airline-themes"]
+	path = vim/pack/newellista/start/vim-airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes.git
+[submodule "vim/pack/newellista/start/minimalist"]
+	path = vim/pack/newellista/start/minimalist
+	url = git@github.com:dikiaap/minimalist.git
