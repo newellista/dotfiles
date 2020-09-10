@@ -13,3 +13,6 @@
 [submodule "vim/pack/newellista/start/vim-airline"]
 	path = vim/pack/newellista/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+[submodule "vim/pack/newellista/start/palenight.vim"]
+	path = vim/pack/newellista/start/palenight.vim
+	url = git@github.com:drewtempelmeyer/palenight.vim.git
