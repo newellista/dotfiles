@@ -16,3 +16,21 @@
 [submodule "vim/pack/newellista/start/palenight.vim"]
 	path = vim/pack/newellista/start/palenight.vim
 	url = git@github.com:drewtempelmeyer/palenight.vim.git
+[submodule "iterm2/palenight-iterm2"]
+	path = iterm2/palenight-iterm2
+	url = git@github.com:JonathanSpeek/palenight-iterm2.git
+[submodule "vim/pack/newellista/start/ctrlp"]
+	path = vim/pack/newellista/start/ctrlp
+	url = git@github.com:kien/ctrlp.vim.git
+[submodule "iterm2/iterm2-gruvbox"]
+	path = iterm2/iterm2-gruvbox
+	url = git@github.com:herrbischoff/iterm2-gruvbox.git
+[submodule "vim/pack/newellista/start/gruvbox"]
+	path = vim/pack/newellista/start/gruvbox
+	url = git@github.com:morhetz/gruvbox.git
+[submodule "iterm2/tender-iterm2"]
+	path = iterm2/tender-iterm2
+	url = git@github.com:tombell/tender-iterm2.git
+[submodule "vim/pack/newellista/start/tender"]
+	path = vim/pack/newellista/start/tender
+	url = git@github.com:jacoborus/tender.vim.git
