@@ -124,14 +124,6 @@ map <leader>gg :topleft 100 :split Gemfile<cr>
 " Mapping for unobtrusive editing (IE: save without removing whitespace)
 map <Leader>w :noautocmd w<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ARROW KEYS ARE UNACCEPTABLE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Left> :echo "IMPOSSIBRU!!"<cr>
-map <Right> :echo "IMPOSSIBRU!!"<cr>
-map <Up> :echo "IMPOSSIBRU!!"<cr>
-map <Down> :echo "IMPOSSIBRU!!"<cr>
-
 " File types to hide in the file browser
 let g:netrw_list_hide= '.*\.swp$'
 

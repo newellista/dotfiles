@@ -43,3 +43,9 @@
 [submodule "vim/pack/newellista/start/vim-endwise"]
 	path = vim/pack/newellista/start/vim-endwise
 	url = git@github.com:tpope/vim-endwise.git
+[submodule "vim-eunuch"]
+	path = vim-eunuch
+	url = git@github.com:tpope/vim-eunuch.git
+[submodule "vim/pack/newellista/start/vim-eunuch"]
+	path = vim/pack/newellista/start/vim-eunuch
+	url = git@github.com:tpope/vim-eunuch.git
