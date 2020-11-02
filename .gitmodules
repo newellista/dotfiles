@@ -52,3 +52,6 @@
 [submodule "vim/pack/newellista/start/vim-matchit"]
 	path = vim/pack/newellista/start/vim-matchit
 	url = git@github.com:adelarsq/vim-matchit.git
+[submodule "vim/pack/newellista/start/vim-go"]
+	path = vim/pack/newellista/start/vim-go
+	url = git@github.com:fatih/vim-go.git
