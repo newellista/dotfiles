@@ -165,6 +165,7 @@ augroup END
 
 augroup filetype_html
 	autocmd!
+	autocmd FileType html setlocal number
 	" autocmd BufWrite,BufRead *.html :normal gg=G
 	" autocmd BufWrite,BufRead *.haml :normal gg=G
 augroup END
