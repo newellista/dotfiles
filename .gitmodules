@@ -6,52 +6,52 @@
 	url = https://github.com/rking/ag.vim
 [submodule "vim/pack/newellista/start/vim-elixir"]
 	path = vim/pack/newellista/start/vim-elixir
-	url = git@github.com:elixir-lang/vim-elixir.git
+	url = https://github.com:elixir-lang/vim-elixir.git
 [submodule "vim/pack/newellista/start/vim-mkdir"]
 	path = vim/pack/newellista/start/vim-mkdir
-	url = git@github.com:pbrisbin/vim-mkdir.git
+	url = https://github.com:pbrisbin/vim-mkdir.git
 [submodule "vim/pack/newellista/start/vim-airline"]
 	path = vim/pack/newellista/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
 [submodule "vim/pack/newellista/start/palenight.vim"]
 	path = vim/pack/newellista/start/palenight.vim
-	url = git@github.com:drewtempelmeyer/palenight.vim.git
+	url = https://github.com:drewtempelmeyer/palenight.vim.git
 [submodule "iterm2/palenight-iterm2"]
 	path = iterm2/palenight-iterm2
-	url = git@github.com:JonathanSpeek/palenight-iterm2.git
+	url = https://github.com:JonathanSpeek/palenight-iterm2.git
 [submodule "vim/pack/newellista/start/ctrlp"]
 	path = vim/pack/newellista/start/ctrlp
-	url = git@github.com:kien/ctrlp.vim.git
+	url = https://github.com:kien/ctrlp.vim.git
 [submodule "iterm2/iterm2-gruvbox"]
 	path = iterm2/iterm2-gruvbox
-	url = git@github.com:herrbischoff/iterm2-gruvbox.git
+	url = https://github.com:herrbischoff/iterm2-gruvbox.git
 [submodule "vim/pack/newellista/start/gruvbox"]
 	path = vim/pack/newellista/start/gruvbox
-	url = git@github.com:morhetz/gruvbox.git
+	url = https://github.com:morhetz/gruvbox.git
 [submodule "iterm2/tender-iterm2"]
 	path = iterm2/tender-iterm2
-	url = git@github.com:tombell/tender-iterm2.git
+	url = https://github.com:tombell/tender-iterm2.git
 [submodule "vim/pack/newellista/start/tender"]
 	path = vim/pack/newellista/start/tender
-	url = git@github.com:jacoborus/tender.vim.git
+	url = https://github.com:jacoborus/tender.vim.git
 [submodule "vim/pack/newellista/start/vim-airline-themes"]
 	path = vim/pack/newellista/start/vim-airline-themes
-	url = git@github.com:vim-airline/vim-airline-themes.git
+	url = https://github.com:vim-airline/vim-airline-themes.git
 [submodule "vim/pack/newellista/start/minimalist"]
 	path = vim/pack/newellista/start/minimalist
-	url = git@github.com:dikiaap/minimalist.git
+	url = https://github.com:dikiaap/minimalist.git
 [submodule "vim/pack/newellista/start/vim-endwise"]
 	path = vim/pack/newellista/start/vim-endwise
-	url = git@github.com:tpope/vim-endwise.git
+	url = https://github.com:tpope/vim-endwise.git
 [submodule "vim-eunuch"]
 	path = vim-eunuch
-	url = git@github.com:tpope/vim-eunuch.git
+	url = https://github.com:tpope/vim-eunuch.git
 [submodule "vim/pack/newellista/start/vim-eunuch"]
 	path = vim/pack/newellista/start/vim-eunuch
-	url = git@github.com:tpope/vim-eunuch.git
+	url = https://github.com:tpope/vim-eunuch.git
 [submodule "vim/pack/newellista/start/vim-matchit"]
 	path = vim/pack/newellista/start/vim-matchit
-	url = git@github.com:adelarsq/vim-matchit.git
+	url = https://github.com:adelarsq/vim-matchit.git
 [submodule "vim/pack/newellista/start/vim-go"]
 	path = vim/pack/newellista/start/vim-go
-	url = git@github.com:fatih/vim-go.git
+	url = https://github.com:fatih/vim-go.git
