@@ -55,3 +55,6 @@
 [submodule "vim/pack/newellista/start/vim-go"]
 	path = vim/pack/newellista/start/vim-go
 	url = https://github.com:fatih/vim-go.git
+[submodule "vim/pack/newellista/start/emmet-vim"]
+	path = vim/pack/newellista/start/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git

@@ -58,7 +58,7 @@ set background=dark
 colorscheme minimalist
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" KEY MAPPINGS 
+" KEY MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " remove search highlight
 nnoremap <leader><CR> :nohlsearch<CR>
@@ -158,7 +158,7 @@ augroup filetype_ruby
 
 	" reformat entire file on read/write
   " autocmd BufWrite,BufRead *.rb :normal gg=G
-	
+
   " remove traling whitespace
   autocmd BufWritePre *.rb :%s/\s\+$//e
 augroup END
@@ -252,14 +252,10 @@ map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
 
-let g:tslime_always_current_session = 1 
+let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-let g:airline_theme='minimalist'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
