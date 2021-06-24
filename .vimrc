@@ -256,6 +256,11 @@ let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+" if executable('ag')
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" endif
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\.git$\|\.yardoc\|public$\|log\|node_modules$\|dist$'
+  \ }
+set number
