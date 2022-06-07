@@ -261,6 +261,6 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 " endif
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\.git$\|\.yardoc\|public$\|log\|node_modules$\|dist$'
+  \ 'dir': '\.git$\|\.yardoc\|public$\|node_modules$\|dist$'
   \ }
 set number
