@@ -13,21 +13,12 @@
 [submodule "vim/pack/newellista/start/vim-airline"]
 	path = vim/pack/newellista/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "vim/pack/newellista/start/palenight.vim"]
-	path = vim/pack/newellista/start/palenight.vim
-	url = https://github.com/drewtempelmeyer/palenight.vim.git
 [submodule "iterm2/palenight-iterm2"]
 	path = iterm2/palenight-iterm2
 	url = https://github.com/JonathanSpeek/palenight-iterm2.git
 [submodule "iterm2/iterm2-gruvbox"]
 	path = iterm2/iterm2-gruvbox
 	url = https://github.com/herrbischoff/iterm2-gruvbox.git
-[submodule "vim/pack/newellista/start/gruvbox"]
-	path = vim/pack/newellista/start/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
-[submodule "vim/pack/newellista/start/tender"]
-	path = vim/pack/newellista/start/tender
-	url = https://github.com/jacoborus/tender.vim.git
 [submodule "vim/pack/newellista/start/vim-airline-themes"]
 	path = vim/pack/newellista/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
