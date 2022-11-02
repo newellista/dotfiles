@@ -28,9 +28,6 @@
 [submodule "vim/pack/newellista/start/gruvbox"]
 	path = vim/pack/newellista/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
-[submodule "iterm2/tender-iterm2"]
-	path = iterm2/tender-iterm2
-	url = https://github.com/tombell/tender-iterm2.git
 [submodule "vim/pack/newellista/start/tender"]
 	path = vim/pack/newellista/start/tender
 	url = https://github.com/jacoborus/tender.vim.git
