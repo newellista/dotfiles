@@ -31,9 +31,6 @@
 [submodule "vim/pack/newellista/start/vim-airline-themes"]
 	path = vim/pack/newellista/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "vim/pack/newellista/start/minimalist"]
-	path = vim/pack/newellista/start/minimalist
-	url = https://github.com/dikiaap/minimalist.git
 [submodule "vim/pack/newellista/start/vim-endwise"]
 	path = vim/pack/newellista/start/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
@@ -52,3 +49,6 @@
 [submodule "vim/pack/newellista/start/emmet-vim"]
 	path = vim/pack/newellista/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "vim/pack/newellista/start/ctrlp"]
+	path = vim/pack/newellista/start/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
