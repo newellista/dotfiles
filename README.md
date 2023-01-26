@@ -3,14 +3,14 @@
 - Clone the repository (_recursively_ to clone plugins as well):
 
     ```
-    git clone --recursive https://github.com/username/reponame.git
+    git clone --recursive https://github.com/newellista/dotfiles.git
     ```
     
 - Symlink `.vim` and `.vimrc`:
 
     ```
-    ln -sf reponame ~/.vim
-    ln -sf reponame/vimrc ~/.vimrc
+    ln -sf dotfiles ~/.vim
+    ln -sf dotfiles/.vimrc ~/.vimrc
     ```
     
 - Generate helptags for plugins:
@@ -18,6 +18,7 @@
     vim
     :helptags ALL
     ```
+    
 ### Installing plugins
 To install plugins (say always-loaded `foo` and optionally-loaded `bar`, located at `https://github.com/manasthakur/foo` and `https://github.com/manasthakur/bar`, respectively) using Vim 8's package feature:
 ```
