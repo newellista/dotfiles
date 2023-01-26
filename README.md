@@ -22,8 +22,8 @@
 ### Installing plugins
 To install plugins (say always-loaded `foo` and optionally-loaded `bar`, located at `https://github.com/manasthakur/foo` and `https://github.com/manasthakur/bar`, respectively) using Vim 8's package feature:
 ```
-git submodule add https://github.com/manasthakur/foo.git pack/plugins/start/foo
-git submodule add https://github.com/manasthakur/bar.git pack/plugins/opt/bar
+git submodule add https://github.com/manasthakur/foo.git vim/pack/plugins/start/foo
+git submodule add https://github.com/manasthakur/bar.git vim/pack/plugins/opt/bar
 git commit -m "Added submodules."
 ```
 
@@ -37,14 +37,14 @@ It is recommended to first `git fetch origin master` a plugin, review changes, a
 
 To update all the plugins:
 ```
-cd ~/.vim
+cd ~/dotfiles
 git submodule foreach git pull origin master
 ```
 
 Note that new commits to plugins create uncommitted changes in the main repository.
 Thus, after any updates in the submodules, you need to commit the main repository as well:
 ```
-cd ~/.vim
+cd ~/dotfiles
 git commit -am "Updated plugins."
 ```
 
