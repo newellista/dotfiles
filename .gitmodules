@@ -49,3 +49,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "vim/pack/newellista/start/vim-obsession"]
+	path = vim/pack/newellista/start/vim-obsession
+	url = https://github.com/tpope/vim-obsession.git
