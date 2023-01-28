@@ -46,3 +46,6 @@
 [submodule "vim/pack/newellista/start/minimalist"]
 	path = vim/pack/newellista/start/minimalist
 	url = https://github.com/dikiaap/minimalist.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
