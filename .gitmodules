@@ -49,3 +49,6 @@
 [submodule "vim/pack/newellista/start/vim-obsession"]
 	path = vim/pack/newellista/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
+[submodule "vim/pack/newellista/start/vim-ripgrep"]
+	path = vim/pack/newellista/start/vim-ripgrep
+	url = https://github.com/jremmen/vim-ripgrep.git
