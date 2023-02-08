@@ -1,0 +1,19 @@
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[user]
+	name = Steve Newell
+	email = newellista@gmail.com
+[alias]
+	st = status -sb
+  ci = commit
+  co = checkout
+  br = branch
+[core]
+  editor = vim
+	excludesfile = /Users/stevenewell/.gitignore
+[format]
+  pretty = oneline
+[merge]
+  tool = opendiff
