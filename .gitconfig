@@ -2,7 +2,7 @@
 	useHttpPath = true
 [user]
 	name = Steve Newell
-	email = newellista@gmail.com
+	email = steve.newell@lvt.com
 [alias]
 	st = status -sb
   ci = commit
@@ -10,7 +10,7 @@
   br = branch
 [core]
   editor = vim
-	excludesfile = /Users/stevenewell/.gitignore
+	excludesfile = /Users/steve.newell/.gitignore
 [format]
   pretty = oneline
 [merge]
@@ -18,3 +18,5 @@
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
+[push]
+	autoSetupRemote = true

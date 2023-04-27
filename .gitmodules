@@ -52,3 +52,6 @@
 [submodule "vim/pack/newellista/start/vim-ripgrep"]
 	path = vim/pack/newellista/start/vim-ripgrep
 	url = https://github.com/jremmen/vim-ripgrep.git
+[submodule "vim/pack/newellista/start/vim-terraform"]
+	path = vim/pack/newellista/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
