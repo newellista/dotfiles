@@ -55,3 +55,12 @@
 [submodule "vim/pack/newellista/start/vim-terraform"]
 	path = vim/pack/newellista/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule "vim/pack/plugins/start/vim-javascript"]
+	path = vim/pack/plugins/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/pack/plugins/start/typescript-vim"]
+	path = vim/pack/plugins/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "vim/pack/plugins/start/vim-graphql"]
+	path = vim/pack/plugins/start/vim-graphql
+	url = https://github.com/jparise/vim-graphql.git
