@@ -67,3 +67,6 @@
 [submodule "vim/pack/plugins/start/vim-jsx-pretty"]
 	path = vim/pack/plugins/start/vim-jsx-pretty
 	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
+[submodule "vim/pack/newellista/start/vim-graphql"]
+	path = vim/pack/newellista/start/vim-graphql
+	url = https://github.com/jparise/vim-graphql.git
