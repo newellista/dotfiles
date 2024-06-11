@@ -73,3 +73,6 @@
 [submodule "vim/pack/newellista/start/vim-jsdoc"]
 	path = vim/pack/newellista/start/vim-jsdoc
 	url = https://github.com/heavenshell/vim-jsdoc.git
+[submodule "vim/pack/newellista/start/vim-prisma"]
+	path = vim/pack/newellista/start/vim-prisma
+	url = https://github.com/prisma/vim-prisma.git
