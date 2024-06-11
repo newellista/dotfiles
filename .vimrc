@@ -37,6 +37,7 @@ set scrolloff=3
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 syntax on
+set re=0
 " Enable file type detection.
 " Use the default filetype settings, so that mail gets 'tw' set to 72,
 " 'cindent' is on in C files, etc.
