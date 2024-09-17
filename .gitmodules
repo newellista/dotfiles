@@ -76,3 +76,6 @@
 [submodule "vim/pack/newellista/start/vim-prisma"]
 	path = vim/pack/newellista/start/vim-prisma
 	url = https://github.com/prisma/vim-prisma.git
+[submodule "vim/pack/newellista/start/vim-mustache-handlebars"]
+	path = vim/pack/newellista/start/vim-mustache-handlebars
+	url = https://github.com/mustache/vim-mustache-handlebars.git
