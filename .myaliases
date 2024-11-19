@@ -1,0 +1,8 @@
+alias ll='ls -laF'
+alias l='ls -l'
+
+alias cls='clear'
+alias cdp='cd ~/projects'
+ctags='/opt/homebrew /bin/ctags'
+alias bx='bundle exec'
+alias kubectl="minikube kubectl --"
