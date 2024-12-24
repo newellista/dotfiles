@@ -9,8 +9,9 @@
 - Symlink `.vim` and `.vimrc`:
 
     ```
-    ln -sf dotfiles ~/.vim
+    ln -sf dotfiles/vim ~/.vim
     ln -sf dotfiles/.vimrc ~/.vimrc
+    ln -sf dotfiles/.tmux.conf ~/.tmux.conf
     ```
     
 - Generate helptags for plugins:
