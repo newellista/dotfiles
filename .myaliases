@@ -3,6 +3,7 @@ alias l='ls -l'
 
 alias cls='clear'
 alias cdp='cd ~/projects'
+alias cdpp='cd ~/projects/personal'
 ctags='/opt/homebrew /bin/ctags'
 alias bx='bundle exec'
 alias kubectl="minikube kubectl --"
