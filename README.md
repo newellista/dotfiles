@@ -6,11 +6,12 @@
     git clone --recursive https://github.com/newellista/dotfiles.git
     ```
     
-- Symlink `.vim` and `.vimrc`:
+- Symlink `.vim`, `.vimrc` and `.tmux.conf`:
 
     ```
     ln -sf dotfiles ~/.vim
     ln -sf dotfiles/.vimrc ~/.vimrc
+    ln -sn dotfiles/.tmux.conf ~/.tmux.conf
     ```
     
 - Generate helptags for plugins:
