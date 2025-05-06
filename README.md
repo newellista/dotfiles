@@ -9,7 +9,7 @@
 - Symlink `.vim`, `.vimrc` and `.tmux.conf`:
 
     ```
-    ln -sf dotfiles ~/.vim
+    ln -sf dotfiles/vim ~/.vim
     ln -sf dotfiles/.vimrc ~/.vimrc
     ln -sn dotfiles/.tmux.conf ~/.tmux.conf
     ```
