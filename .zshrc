@@ -25,21 +25,9 @@ set -o vi
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
-<<<<<<< HEAD
-CPPFLAGS='-I/opt/homebrew/opt/libpq/include -I/opt/homebrew/opt/mysql@5.7/include'
-
-GOBIN=/Users/steve.newell/.asdf/installs/golang/1.24.1/bin
-GOPATH=/Users/steve.newell/.asdf/installs/golang/1.24.1/packages
-GOROOT=/Users/steve.newell/.asdf/installs/golang/1.24.1/go
-
-LDFLAGS='-L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/mysql@5.7/lib'
-
-VAULT_ADDR=https://vault.lvt-platform-ops.aws.lvt.cloud/
-=======
 export CPPFLAGS='-I/opt/homebrew/opt/libpq/include -I/opt/homebrew/opt/mysql@5.7/include'
 export GOBIN=/Users/steve.newell/.asdf/installs/golang/1.24.1/bin
 export GOPATH=/Users/steve.newell/.asdf/installs/golang/1.24.1/packages
 export GOROOT=/Users/steve.newell/.asdf/installs/golang/1.24.1/go
 export LDFLAGS='-L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/mysql@5.7/lib'
 export VAULT_ADDR=https://vault.lvt-platform-ops.aws.lvt.cloud/
->>>>>>> 20f1a24 (remove unused exports)
