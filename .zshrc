@@ -31,3 +31,8 @@ export GOPATH=/Users/steve.newell/.asdf/installs/golang/1.24.1/packages
 export GOROOT=/Users/steve.newell/.asdf/installs/golang/1.24.1/go
 export LDFLAGS='-L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/mysql@5.7/lib'
 export VAULT_ADDR=https://vault.lvt-platform-ops.aws.lvt.cloud/
+
+# Add support for Android Studio
+export PATH=/opt/homebrew/share/android-commandlinetools/cmdline-tools/latest/bin:$PATH
+export PATH=/opt/homebrew/share/android-commandlinetools/emulator:$PATH
+export PATH=/opt/homebrew/share/android-commandlinetools/platform-tools:$PATH
