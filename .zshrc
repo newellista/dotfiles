@@ -32,6 +32,8 @@ export GOROOT=/Users/steve.newell/.asdf/installs/golang/1.24.1/go
 export LDFLAGS='-L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/mysql@5.7/lib'
 export VAULT_ADDR=https://vault.lvt-platform-ops.aws.lvt.cloud/
 
+# asdf support
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # Add support for Android Studio
 export ANDROID_HOME=~/Library/Android/sdk
 
