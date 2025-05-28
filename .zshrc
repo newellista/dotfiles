@@ -33,6 +33,8 @@ export LDFLAGS='-L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/mysql@5.7/lib'
 export VAULT_ADDR=https://vault.lvt-platform-ops.aws.lvt.cloud/
 
 # Add support for Android Studio
+export ANDROID_HOME=~/Library/Android/sdk
+
 export PATH=/opt/homebrew/share/android-commandlinetools/cmdline-tools/latest/bin:$PATH
 export PATH=/opt/homebrew/share/android-commandlinetools/emulator:$PATH
 export PATH=/opt/homebrew/share/android-commandlinetools/platform-tools:$PATH
