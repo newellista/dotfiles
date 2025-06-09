@@ -12,7 +12,7 @@
     ln -sf dotfiles ~/.vim
     ln -sf dotfiles/.vimrc ~/.vimrc
     ```
-    I just recently added a script called `init_dot_files.sh` which attempts to recreate necessary symlinks. **USE IT AT YOUR OWN RISK**.  It should handle `.zshrc` and .tmux.conf` symlinks.
+    I just recently added a script called `init_dot_files.sh` which attempts to recreate necessary symlinks. **USE IT AT YOUR OWN RISK**.  It should handle `.zshrc` and `.tmux.conf` symlinks.
 
     Rather than putting api keys or other secrets directly in `.zshrc`, I've started putting them in `.global.env` and sourcing that file at the bottom of `.zshrc`. `global.env` is explcitily `git ignored`, so no secrets should get into GitHub. :fingers_crossed:
     
