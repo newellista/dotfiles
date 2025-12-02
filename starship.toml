@@ -1,0 +1,37 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$lua\
+$python\
+$nodejs\
+$docker_context\
+$jobs\
+$cmd_duration\
+$line_break\
+$character
+"""
+
+[fill]
+symbol = ' '
+
+[directory]
+style = 'bold fg:dark_blue'
+format = '[$path ]($style)'
+truncation_length = 3
+truncation_symbol = '../'
+truncate_to_repo = false
+
+[git_branch]
+style = 'fg:green'
+symbol = ' '
+format = '[on](white) [$symbol$branch ]($style)'
+
+[git_status]
+style = 'fg:green'
+format = '([$all_status$ahead_behind]($style) )'
+
+[nodejs]
+style = 'blue'
+symbol = ' '
