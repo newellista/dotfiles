@@ -1,4 +1,5 @@
 format = """
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -33,5 +34,6 @@ style = 'fg:green'
 format = '([$all_status$ahead_behind]($style) )'
 
 [nodejs]
-style = 'blue'
+style = 'yellow'
 symbol = ' '
+format = "[$symbol($version )]($style)"
