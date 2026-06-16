@@ -51,7 +51,6 @@ export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
 eval "$(starship init zsh)"
 
 [[ ! -f ~/.zsh/fzf.zsh ]] || source ~/.zsh/fzf.zsh
-# [[ ! -f ~/.zsh/gitfunctions.zsh ]] || source ~/.zsh/gitfunctions.zsh
 export PATH="$HOME/.local/bin:$PATH"
 
 # pnpm

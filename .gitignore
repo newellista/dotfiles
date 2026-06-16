@@ -46,4 +46,7 @@ component/bin
 
 tmux/*
 
+# Tool state auto-written into the repo because XDG_CONFIG_HOME points here
+configstore/
+
 **/.claude/settings.local.json

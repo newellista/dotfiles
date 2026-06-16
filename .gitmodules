@@ -10,12 +10,6 @@
 [submodule "vim/pack/newellista/start/vim-airline"]
 	path = vim/pack/newellista/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "iterm2/palenight-iterm2"]
-	path = iterm2/palenight-iterm2
-	url = https://github.com/JonathanSpeek/palenight-iterm2.git
-[submodule "iterm2/iterm2-gruvbox"]
-	path = iterm2/iterm2-gruvbox
-	url = https://github.com/herrbischoff/iterm2-gruvbox.git
 [submodule "vim/pack/newellista/start/vim-airline-themes"]
 	path = vim/pack/newellista/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git

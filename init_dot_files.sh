@@ -2,7 +2,7 @@
 
 homedir=~
 dotfiles_dir=$homedir/dotfiles
-config_directories=("vim" "tmux" "iterm2")
+config_directories=("vim" "tmux")
 
 for dir in ${config_directories[@]}; do
   destination=$homedir/.$dir
