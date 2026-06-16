@@ -181,6 +181,7 @@ augroup filetype_go
 augroup END
 
 autocmd FileType gitcommit setlocal spell textwidth=72
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 
 " Expand %% to current dir
 cnoremap %% <C-R>=expand('%:h').'/'<cr>

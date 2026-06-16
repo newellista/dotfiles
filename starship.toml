@@ -30,10 +30,27 @@ symbol = ' '
 format = '[on](white) [$symbol$branch ]($style)'
 
 [git_status]
-style = 'fg:green'
-format = '([$all_status$ahead_behind]($style) )'
+disabled = true
 
 [nodejs]
+detect_files = ["package.json", ".node-version"]
+detect_extensions = ["js", "ts"]
 style = 'yellow'
 symbol = ' '
 format = "[$symbol($version )]($style)"
+
+[python]
+disabled = true
+detect_extensions = ["py"]
+detect_files = ["pyproject.toml", "requirements.txt", ".python-version"]
+format = "[🐍 $version ](fg:blue)"
+
+[lua]
+detect_extensions = ["lua"]
+format = "[🌙 $version ](fg:blue)"
+
+[jobs]
+disabled = true
+
+[cmd_duration]
+disabled = true

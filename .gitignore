@@ -45,3 +45,5 @@ component/bin
 .yarnrc.yml
 
 tmux/*
+
+**/.claude/settings.local.json
