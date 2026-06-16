@@ -14,7 +14,7 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -f ~/.myaliases ]] || source ~/.myaliases
 
-export EDITOR=vi
+export EDITOR=vim
 set -o vi
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
@@ -49,3 +49,22 @@ export AWS_CA_BUNDLE="/Users/steve.newell/.netskope/nscacert_combined.pem"
 
 export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
 eval "$(starship init zsh)"
+
+[[ ! -f ~/.zsh/fzf.zsh ]] || source ~/.zsh/fzf.zsh
+# [[ ! -f ~/.zsh/gitfunctions.zsh ]] || source ~/.zsh/gitfunctions.zsh
+export PATH="$HOME/.local/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/steve.newell/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# bun completions
+[ -s "/Users/steve.newell/.bun/_bun" ] && source "/Users/steve.newell/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
