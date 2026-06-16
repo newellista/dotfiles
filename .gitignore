@@ -49,4 +49,7 @@ tmux/*
 # Tool state auto-written into the repo because XDG_CONFIG_HOME points here
 configstore/
 
+# gh stores auth tokens here on (re)auth — never commit
+gh/hosts.yml
+
 **/.claude/settings.local.json
