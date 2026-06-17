@@ -27,10 +27,13 @@ to its tool — in all cases you **edit the copy here in the repo**.
    ```sh
    ~/dotfiles/init_dot_files.sh
    ```
-   Links the top-level dotfiles plus `vim/` and `tmux/`. It does **not** yet link
-   `.zsh/` or the `skills/` entries — do those manually for now (see Gotchas).
-3. **Install the tools the configs expect:** oh-my-zsh, starship, fzf, ripgrep,
-   asdf, tmux. In tmux, press `prefix + I` to install plugins via tpm.
+   Links the top-level dotfiles, `vim/`/`tmux/`/`.zsh/`, and the shared agent
+   skills (per `skills/targets.conf`), initializes plugin submodules, and reports
+   any expected tools that are missing. Idempotent — safe to re-run; an existing
+   real file is backed up to `<name>.bak` before being replaced.
+3. **Install any tools** the previous step flagged as missing (oh-my-zsh,
+   starship, fzf, ripgrep, asdf, tmux). In tmux, press `prefix + I` to install
+   plugins via tpm.
 4. **Recreate secrets** — see [Secrets](#secrets).
 5. **Vim helptags:** open `vim`, run `:helptags ALL`.
 6. **Re-authenticate tooling** (never stored in this repo): `gh auth login`, and
@@ -60,9 +63,10 @@ ln -sfn ~/dotfiles/skills/pr-summary ~/.claude/skills/pr-summary
 ln -sfn ~/dotfiles/skills/pr-summary ~/.cursor/skills/pr-summary
 ```
 
-Use `ln -sfn` (force, no-dereference) so the link can't accidentally nest inside
-an existing directory. Keep tool-specific skills (anything that hard-codes one
-tool's mechanics) out of `skills/`.
+`skills/targets.conf` declares which tools each skill links into;
+`init_dot_files.sh` creates the links from it (use `ln -sfn` for any manual
+one-off). Keep tool-specific skills (anything that hard-codes one tool's
+mechanics) out of `skills/` — link those directly into the one tool instead.
 
 ## Vim / tmux plugins (git submodules)
 
@@ -87,13 +91,13 @@ gitignored.
 
 ## Gotchas
 
-- **Global git excludes.** `core.excludesfile` currently points at this repo's
-  `.gitignore` (via `~/.gitignore`), so repo-specific patterns here (`tmux/*`,
-  `configstore/`, `gh/hosts.yml`) apply as ignores in *every* repo on the
-  machine. Splitting a dedicated `.gitignore_global` out is on the TODO list.
 - **`XDG_CONFIG_HOME` is the repo root.** XDG-aware tools therefore read *and
   write* here; runtime state they drop (e.g. `configstore/`) gets gitignored as
   it appears.
+- **Two gitignores.** Universal patterns live in `.gitignore_global` (wired up
+  as `core.excludesfile`); repo-specific patterns stay in `.gitignore`. Don't
+  move repo-specific patterns (`tmux/*`, `.tool-versions`, …) into the global
+  file — they'd then hide matching files in every repo on the machine.
 
 ---
 Vim package layout adapted from this [gist](https://gist.github.com/manasthakur/d4dc9a610884c60d944a4dd97f0b3560).
