@@ -1,0 +1,39 @@
+# Global git excludes — applies to EVERY repo (core.excludesfile).
+# Keep ONLY patterns that are safe to ignore everywhere. Repo-specific
+# patterns belong in that repo's own .gitignore, not here.
+
+# OS
+.DS_Store
+
+# Vim swap / session / undo (gitignore.io vim template)
+[._]*.s[a-v][a-z]
+!*.svg
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+[._]*.un~
+
+# Temporary
+*~
+
+# ctags
+tags
+
+# Editors
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+
+# Secrets / local-only — never commit in any repo
+.env
+**/.claude/settings.local.json

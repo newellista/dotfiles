@@ -1,42 +1,12 @@
-.DS_Store
-[._]*.s[a-v][a-z]
-!*.svg  # comment out if you don't need vector files
-[._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
-[._]sw[a-p]
+# Ignores specific to THIS repo only.
+# Universal patterns (.DS_Store, vim swap, .env, etc.) live in
+# .gitignore_global, which is wired up as core.excludesfile.
 
-# Session
-Session.vim
-Sessionx.vim
-
-# Temporary
-.netrwhist
-*~
-# Auto-generated tag files
-tags
-# Persistent undo
-[._]*.un~
-
-.vscode/
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
-
-# Local History for Visual Studio Code
-.history/
-
-# Built Visual Studio Code Extensions
-*.vsix
-
-# environment files
-.env
+# Secret env sourced by .zshrc
 .global.env
 
-# asdf
+# asdf — ignored HERE only. Do NOT move to global: many projects
+# legitimately commit .tool-versions and a global ignore would hide it.
 .tool-versions
 
 # binstubs
@@ -44,12 +14,11 @@ component/bin
 
 .yarnrc.yml
 
+# tmux plugins are tpm-managed at runtime; only tpm itself is tracked
 tmux/*
 
-# Tool state auto-written into the repo because XDG_CONFIG_HOME points here
+# Tool state auto-written here because XDG_CONFIG_HOME points at this repo
 configstore/
 
-# gh stores auth tokens here on (re)auth — never commit
+# gh stores auth tokens here after `gh auth login` — never commit
 gh/hosts.yml
-
-**/.claude/settings.local.json

@@ -18,8 +18,9 @@ do
   filename="$(basename -- $entry)"
 
   if [[ ! -f "$homedir/$filename" ]] && 
-     [[ ! -d "$entry" ]] && 
-     [[ $filename != ".gitmodules"  ]] && 
+     [[ ! -d "$entry" ]] &&
+     [[ $filename != ".gitmodules"  ]] &&
+     [[ $filename != ".gitignore" ]] &&
      [[ $filename != ".git" ]]  ; then
     echo "Creating symlink from $filename to $homedir/$filename"
     ln -s $entry $homedir/$filename
