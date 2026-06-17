@@ -36,4 +36,5 @@ tags
 
 # Secrets / local-only — never commit in any repo
 .env
+.work.zsh
 **/.claude/settings.local.json

@@ -21,7 +21,6 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 export CPPFLAGS='-I/opt/homebrew/opt/libpq/include -I/opt/homebrew/opt/mysql@5.7/include'
 export LDFLAGS='-L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/mysql@5.7/lib'
-export VAULT_ADDR=https://vault.lvt-platform-ops.aws.lvt.cloud/
 
 # asdf support
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
@@ -37,17 +36,7 @@ export PATH=/opt/homebrew/share/android-commandlinetools/platform-tools:$PATH
 # GitHub
 
 [[ ! -f ~/.global.env ]] || source ~/.global.env
-# Netskope corporate CA bundle (work machines only)
-netskope_cert="$HOME/.netskope/nscacert_combined.pem"
-if [[ -f "$netskope_cert" ]]; then
-  export REQUESTS_CA_BUNDLE="$netskope_cert"
-  export NODE_EXTRA_CA_CERTS="$netskope_cert"
-  export CURL_CA_BUNDLE="$netskope_cert"
-  export SSL_CERT_FILE="$netskope_cert"
-  export GIT_SSL_CAINFO="$netskope_cert"
-  export AWS_CA_BUNDLE="$netskope_cert"
-fi
-unset netskope_cert
+[[ ! -f ~/.work.zsh ]] || source ~/.work.zsh
 
 export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
 eval "$(starship init zsh)"

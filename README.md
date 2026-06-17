@@ -52,6 +52,16 @@ export SOME_API_KEY=...
 is also gitignored. Auth that lives in the macOS Keychain (Claude Code login, etc.) is
 re-established per machine, not synced.
 
+## Machine-local / corporate config
+
+`.zshrc` sources `~/.work.zsh` if it exists (`[[ ! -f ~/.work.zsh ]] || source
+~/.work.zsh`). That file is intentionally **not** part of this repo — it holds
+machine/employer-specific settings (e.g. a Vault address, a corporate CA
+bundle) that don't belong in a public dotfiles repo. On a work machine, create
+it by hand; on a personal machine, leave it absent and the shell skips it.
+Unlike `~/.global.env` (secrets, gitignored but living in the repo dir),
+`~/.work.zsh` has no presence in the repo at all.
+
 ## Skills (Claude Code / Cursor)
 
 `skills/` is the single source of truth for agent skills shared between Claude

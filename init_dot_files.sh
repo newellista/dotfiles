@@ -86,6 +86,7 @@ check "asdf"      "command -v asdf"     "brew install asdf"
 echo
 echo "Manual steps this script does NOT do:"
 echo "  - Create ~/.global.env with your secrets (gitignored; see README)."
+echo "  - On a work machine, create ~/.work.zsh for corporate config (see README)."
 echo "  - Re-auth tooling: gh auth login, and MCP servers via /mcp in Claude Code."
 echo "  - Vim helptags: open vim and run :helptags ALL"
 echo "  - In tmux, press prefix + I to install plugins via tpm."
