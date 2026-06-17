@@ -12,7 +12,7 @@ to its tool — in all cases you **edit the copy here in the repo**.
 | Mechanism | Applies to | How it works |
 |---|---|---|
 | **Home symlink** | top-level dotfiles (`.zshrc`, `.gitconfig`, `.tmux.conf`, …), `vim/`, `tmux/`, `.zsh/` | `init_dot_files.sh` links each to `~/.<name>` |
-| **`XDG_CONFIG_HOME`** | `gh/`, `ghostty/`, `cursor/` | `.zshrc` sets `XDG_CONFIG_HOME=$HOME/dotfiles`, so XDG-aware tools read straight from here — no symlink needed |
+| **`XDG_CONFIG_HOME`** | `config/gh`, `config/ghostty`, `config/cursor` | `.zshrc` sets `XDG_CONFIG_HOME=$HOME/dotfiles/config`, so XDG-aware tools read straight from there — no symlink needed |
 | **Agent skill dirs** | `skills/` | each skill is symlinked into `~/.claude/skills/` and/or `~/.cursor/skills/` |
 
 ## Bootstrap a new machine
@@ -48,8 +48,8 @@ API keys and tokens never go in tracked files. They live in `~/.global.env`
 export SOME_API_KEY=...
 ```
 
-`gh/hosts.yml` (which can hold a `gh` OAuth token after `gh auth login`) is also
-gitignored. Auth that lives in the macOS Keychain (Claude Code login, etc.) is
+`config/gh/hosts.yml` (which can hold a `gh` OAuth token after `gh auth login`)
+is also gitignored. Auth that lives in the macOS Keychain (Claude Code login, etc.) is
 re-established per machine, not synced.
 
 ## Skills (Claude Code / Cursor)
@@ -91,9 +91,10 @@ gitignored.
 
 ## Gotchas
 
-- **`XDG_CONFIG_HOME` is the repo root.** XDG-aware tools therefore read *and
-  write* here; runtime state they drop (e.g. `configstore/`) gets gitignored as
-  it appears.
+- **`XDG_CONFIG_HOME` is `dotfiles/config/`.** XDG-aware tools read *and write*
+  there, so runtime state they drop (e.g. `config/configstore/`) is gitignored.
+  Keeping it in a dedicated subdir rather than the repo root isolates those
+  writes from the repo's own files.
 - **Two gitignores.** Universal patterns live in `.gitignore_global` (wired up
   as `core.excludesfile`); repo-specific patterns stay in `.gitignore`. Don't
   move repo-specific patterns (`tmux/*`, `.tool-versions`, …) into the global

@@ -17,8 +17,8 @@ component/bin
 # tmux plugins are tpm-managed at runtime; only tpm itself is tracked
 tmux/*
 
-# Tool state auto-written here because XDG_CONFIG_HOME points at this repo
-configstore/
+# Tool state auto-written into the XDG dir (XDG_CONFIG_HOME=dotfiles/config)
+config/configstore/
 
 # gh stores auth tokens here after `gh auth login` — never commit
-gh/hosts.yml
+config/gh/hosts.yml

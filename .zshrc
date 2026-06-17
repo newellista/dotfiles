@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export XDG_CONFIG_HOME="/Users/steve.newell/dotfiles"
+export XDG_CONFIG_HOME="$HOME/dotfiles/config"
 
 plugins=(
   git
@@ -20,9 +20,6 @@ set -o vi
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 export CPPFLAGS='-I/opt/homebrew/opt/libpq/include -I/opt/homebrew/opt/mysql@5.7/include'
-# export GOBIN=/Users/steve.newell/.asdf/installs/golang/1.24.1/bin
-# export GOPATH=/Users/steve.newell/.asdf/installs/golang/1.24.1/packages
-# export GOROOT=/Users/steve.newell/.asdf/installs/golang/1.24.1/go
 export LDFLAGS='-L/opt/homebrew/opt/libpq/lib -L/opt/homebrew/opt/mysql@5.7/lib'
 export VAULT_ADDR=https://vault.lvt-platform-ops.aws.lvt.cloud/
 
@@ -40,12 +37,17 @@ export PATH=/opt/homebrew/share/android-commandlinetools/platform-tools:$PATH
 # GitHub
 
 [[ ! -f ~/.global.env ]] || source ~/.global.env
-export REQUESTS_CA_BUNDLE="/Users/steve.newell/.netskope/nscacert_combined.pem"
-export NODE_EXTRA_CA_CERTS="/Users/steve.newell/.netskope/nscacert_combined.pem"
-export CURL_CA_BUNDLE="/Users/steve.newell/.netskope/nscacert_combined.pem"
-export SSL_CERT_FILE="/Users/steve.newell/.netskope/nscacert_combined.pem"
-export GIT_SSL_CAINFO="/Users/steve.newell/.netskope/nscacert_combined.pem"
-export AWS_CA_BUNDLE="/Users/steve.newell/.netskope/nscacert_combined.pem"
+# Netskope corporate CA bundle (work machines only)
+netskope_cert="$HOME/.netskope/nscacert_combined.pem"
+if [[ -f "$netskope_cert" ]]; then
+  export REQUESTS_CA_BUNDLE="$netskope_cert"
+  export NODE_EXTRA_CA_CERTS="$netskope_cert"
+  export CURL_CA_BUNDLE="$netskope_cert"
+  export SSL_CERT_FILE="$netskope_cert"
+  export GIT_SSL_CAINFO="$netskope_cert"
+  export AWS_CA_BUNDLE="$netskope_cert"
+fi
+unset netskope_cert
 
 export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
 eval "$(starship init zsh)"
@@ -54,7 +56,7 @@ eval "$(starship init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/steve.newell/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -62,7 +64,7 @@ esac
 # pnpm end
 
 # bun completions
-[ -s "/Users/steve.newell/.bun/_bun" ] && source "/Users/steve.newell/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
