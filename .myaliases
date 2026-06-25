@@ -5,3 +5,6 @@ alias cls='clear'
 alias cdp='cd ~/projects'
 alias cdpp='cd ~/projects/personal'
 alias bx='bundle exec'
+
+# Corporate architecture skills are repo-bound; jump in and launch Claude Code there
+arch() { cd ~/projects/architecture && claude "$@"; }
