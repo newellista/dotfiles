@@ -22,3 +22,9 @@ config/configstore/
 
 # gh stores auth tokens here after `gh auth login` — never commit
 config/gh/hosts.yml
+
+# gh CLI runtime/auth state written at repo root (username, possibly a plaintext oauth_token)
+gh/
+
+# Homebrew tap-trust state written at runtime
+config/homebrew/
