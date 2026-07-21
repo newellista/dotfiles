@@ -4,7 +4,8 @@ Hard-won quirks and identifier recipes for `promotion-analysis`. Read before Pha
 
 ## Access quirks (do not rediscover the hard way)
 
-- **claude.ai Slack and Lucid connectors do NOT work in the Claude Code CLI.** OAuth never propagates; the real tools never register. Slack threads and Lucid design-doc links must be supplied manually by the manager at the evidence checkpoint. Lucid links are auth-gated — WebFetch hits the login wall.
+- **Slack connector now works in the Claude Code CLI (confirmed H1 2026 cycle).** The `mcp__claude_ai_Slack__*` tools authenticate and return data — search by `slack_search_users` (by email) to get a user_id, then `slack_search_public_and_private` with `from:<@USERID>` + `after:`/`before:` (Unix ts) to mine cross-team contributions, mentorship, and proactive risk-surfacing (§3/§4 evidence). This supersedes the earlier "OAuth never propagates" note — try it live before asking the manager to supply Slack threads manually. **Mind the review window:** Slack search sorts newest-first, so page/filter to the closed window; post-window activity is trajectory context only, not in-period evidence.
+- **Lucid connector still does NOT work in the CLI.** Lucid links are auth-gated — WebFetch hits the login wall; design-doc links and Architecture sign-off must be supplied by the manager.
 - **Career ladder is auth-gated in Google Drive MCP** (lacks scope to read the Sheet). Use the local PDF via `pdftotext -layout` (poppler is installed at `/opt/homebrew/bin/pdftotext`).
 - **Output as markdown only.** PDF conversion was declined (no pandoc). Do not offer to convert.
 
@@ -40,6 +41,13 @@ Derivations (apply the filters — the raw `gh` output does not):
 - **Top repos by review count:** group reviewed PRs by `repository`.
 
 GitHub search caps at ~1000 results; if a count hits the limit, note it as a floor (≥N) rather than exact.
+
+### Review-depth dig (quality, not volume — do this before citing reviews)
+Review *count* is a weak signal and invites the "rubber-stamp?" challenge. What matters is review *depth* and whether a review *drove change*. Recipe:
+1. From the reviewed-PRs JSON build a `repo number author` list; **parallelize** the per-PR calls with `xargs -P 12` and run in the background — 100+ sequential `gh api` calls time out.
+2. Per PR, count the person's inline comments: `gh api repos/LiveViewTech/$REPO/pulls/$NUM/comments --jq '[.[]|select(.user.login=="USER")]|length'`. Exclude self-authored PRs and bots. Rank by count. Also flag `CHANGES_REQUESTED` reviews via `/pulls/$NUM/reviews`.
+3. Read the top 1–2 threads: quote a substantive comment, then check the PR's commit timestamps to confirm a follow-up commit landed after the review (comment → "fixed"/commit before merge). **That verified example is the §2/§4 evidence; the raw review count is not.**
+Observed spread (H1 2026): depth varies wildly at the same count — one engineer's 147 reviews were mostly rubber-stamps (1 CHANGES_REQUESTED, ≤5 inline comments/PR), another's 176 had 10+ PRs with 5+ substantive comments driving change. Same headline number, opposite story.
 
 ## Jira / Confluence mining (Atlassian MCP)
 
