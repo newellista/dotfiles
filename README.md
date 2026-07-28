@@ -14,6 +14,7 @@ to its tool — in all cases you **edit the copy here in the repo**.
 | **Home symlink** | top-level dotfiles (`.zshrc`, `.gitconfig`, `.tmux.conf`, …), `vim/`, `tmux/`, `.zsh/` | `init_dot_files.sh` links each to `~/.<name>` |
 | **`XDG_CONFIG_HOME`** | `config/gh`, `config/ghostty`, `config/cursor` | `.zshrc` sets `XDG_CONFIG_HOME=$HOME/dotfiles/config`, so XDG-aware tools read straight from there — no symlink needed |
 | **Agent skill dirs** | `skills/` | each skill is symlinked into `~/.claude/skills/` and/or `~/.cursor/skills/` |
+| **Direct path** | `bin/` | helper scripts called by absolute path from config (e.g. `.tmux.conf` runs `~/dotfiles/bin/tmux-claude-usage.sh`) — nothing to link |
 
 ## Bootstrap a new machine
 
