@@ -35,6 +35,16 @@ to its tool — in all cases you **edit the copy here in the repo**.
 3. **Install any tools** the previous step flagged as missing (oh-my-zsh,
    starship, fzf, ripgrep, asdf, tmux). In tmux, press `prefix + I` to install
    plugins via tpm.
+
+   The status bar's Claude usage segment (`bin/tmux-claude-usage.sh`) also needs
+   [openusage](https://github.com/robinebers/openusage) and `jq`:
+   ```sh
+   brew install --cask openusage   # then sign in via the OpenUsage app
+   brew install jq
+   ```
+   `init_dot_files.sh` does **not** check for openusage. Without it — or before
+   signing in — the segment reads `CLD n/a` / `CLD ?` and the rest of the bar is
+   unaffected.
 4. **Recreate secrets** — see [Secrets](#secrets).
 5. **Vim helptags:** open `vim`, run `:helptags ALL`.
 6. **Re-authenticate tooling** (never stored in this repo): `gh auth login`, and
