@@ -1,6 +1,9 @@
-# Avoid alias collisions
-for name in ff fg fcd gb gc gf; do
+# Avoid alias collisions (oh-my-zsh common-aliases defines `ff`; git defines gb/gc/gf).
+# unalias must run before the function definitions below, or zsh expands the alias
+# inside `name() {` and fails to parse.
+for name in ff ffg fcd gb gc gf; do
   unalias $name 2>/dev/null
+  unfunction $name 2>/dev/null
 done
 
 # ─────────────────────────────────────────────────────────────
@@ -38,9 +41,9 @@ ff() {
       --bind "enter:execute-silent(sh -c 'tmux split-window -h -c \"#{pane_current_path}\" \"$EDITOR \"\"{1}\"\"\"')+abort"
 }
 
-# fg — ripgrep + fzf (global search)
+# ffg — ripgrep + fzf (global search)
 # usage: fg <pattern>
-fg() {
+ffg() {
   local query="${1:-.}"
 
   rg --line-number --no-heading --color=always "$query" |

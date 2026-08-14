@@ -41,9 +41,16 @@ txt=re.sub(r'(?is)</(td|tr|div|p|h[1-6]|table)>','\n',txt)
 txt=re.sub(r'(?is)<[^>]+>',' ',txt); txt=html.unescape(txt)
 txt=re.sub(r'[ \t]+',' ',txt); lines=[l.strip() for l in txt.split('\n') if l.strip()]
 for i,l in enumerate(lines):
-    m=re.match(r'(\d+)\s+ocurrences',l)   # count line; next line has "X% of your errors."
+    m=re.match(r'([\d,]+)\s+ocurrences',l)  # count line; next line has "X% of your errors."
+    if m: count=int(m.group(1).replace(',',''))
     # the two non-JSON label lines just above are applicationname / subsystemname
 ```
+
+**Counts are comma-formatted above 999.** `(\d+)` does not match `1,234` — it fails outright and the entry is dropped with no error, so the highest-volume errors are exactly the ones that vanish. Keep the `[\d,]+` character class and strip commas before `int()`.
+
+**Assert before proceeding**, and stop and show the raw digest structure if either fails:
+- the number of entries parsed equals the number of entry headings in the stripped text
+- the `Top Errors` section was captured
 
 The `%` denominator is total new-error occurrences that day; entries are ranked by share, top signatures only.
 
@@ -74,17 +81,22 @@ source logs | filter $l.subsystemname == '<subsystem>' && $d ~~ '<distinctive ph
 
 Ongoing/climbing in the most recent buckets → confirm `investigate`; a burst that already stopped → downgrade (note it, don't silently drop). A confirmed high ongoing rate **outranks a higher email occurrence count** — the "New Errors" ranking does not reflect whether an error is still firing. Confirmed `investigate` entries proceed to the deep flow (Steps 1–5); `uncertain` that survives is treated as `investigate`.
 
-**`query_dataprime` wrapper gotchas (all verified — the query silently returns nothing or errors otherwise):**
+Before writing the query, read **DataPrime Query Rules** below — wrong tier, quoted severity, or a bad field path all return an empty result that reads as "no errors".
 
-| Gotcha | Rule |
-|--------|------|
-| Full-text match | Use the `~~` operator (`$d ~~ 'phrase'`). `text contains …` and `.contains()` are both **rejected**. |
-| Tier | **Backend service logs are in `TIER_ARCHIVE`; RUM logs (`cx_rum`) are in `TIER_FREQUENT_SEARCH`.** Wrong tier returns empty — a false "no errors". Set `tier` explicitly per source. |
-| Severity value | Data is **title-case** (`$m.severity == 'Error'` / `'Warning'`). The wrapper warns to use uppercase `ERROR`, but uppercase matches **zero rows**. |
-| Time window | Always set `endDate` explicitly — an empty `endDate` clamps the window to ~15 minutes. |
-| Short tokens | Tokens <4 bytes are not indexed (`~~ '503'` matches nothing) — use a longer distinctive phrase or an adjacent token. |
-| String literals | Single quotes only — double quotes fail with "Invalid query or parameters". |
-| Environment split | RUM has no `k8s_cluster_name`; group by `$d.cx_rum.environment` instead of `$d.resource.attributes.k8s_cluster_name`. |
+### 5.5 Dedupe against open Jira (before proposing anything)
+
+Every surviving `investigate` entry gets one JQL search before it reaches the report. An error already covered by an open ticket is a *disposition*, not a new bug — filing it again is the failure this step exists to prevent.
+
+```
+project = JET AND statusCategory != Done AND text ~ "<distinctive phrase>" ORDER BY created DESC
+```
+
+- Pick the distinctive phrase the way you would for a log query: an exception class, a symbol name, a unique message fragment. `text ~` is tokenized, not exact-phrase — feeding it a whole error message matches loosely and buries the signal. Search the narrow term.
+- Search the **error's identity**, not its symptom. The same 5xx spike can be reported by three tickets under three different symptoms; the shared cause is the dedupe key.
+- Run at least two phrasings per entry (exception class and service+behaviour). One miss reads as "no ticket exists" and that is how near-duplicates get filed.
+- Zero results is a claim, not a default. Before recording `no existing ticket`, confirm the query shape returns rows on a term you know is ticketed — same rule as an empty Coralogix result.
+
+Record per entry: `open ticket JET-XXXXX` / `no existing ticket` / `related but not the same: JET-XXXXX`. The third is common and must not collapse into either of the others.
 
 ### 6. Report
 
@@ -218,10 +230,11 @@ When triaging a daily email, the report covers the **full list**, then drills in
 
 1. **Disposition table** — one row per error in the email:
 
-   | Error | Service | Env | Count | Disposition | Why |
-   |-------|---------|-----|-------|-------------|-----|
-   | ... | ... | prod | 1.2K | investigate | new — no history before today |
-   | ... | ... | stage | 400K | noise | flat 7-day trend, non-prod |
+   | Error | Service | Env | Count | Existing ticket | Disposition | Why |
+   |-------|---------|-----|-------|-----------------|-------------|-----|
+   | ... | ... | prod | 1.2K | none | investigate | still firing, 3× day-over-day |
+   | ... | ... | prod | 800 | JET-74517 | duplicate | covered by open ticket |
+   | ... | ... | stage | 400K | — | noise | flat 7-day trend, non-prod |
 
    For any error promoted by the signal guard, cite the trend evidence ("new — first seen today", "spiking — 3× day-over-day") in the Why column.
 
@@ -239,6 +252,24 @@ Present these options ranked by impact; do not apply automatically — confirm w
 | **Sampling rule** — keep a percentage | Log has some value but fires too frequently | `mcp__coralogix__create_simple_parsing_rule` with sample action |
 
 Before creating any rule, run `mcp__coralogix__list_rule_groups` to check for existing rules that may already apply.
+
+## DataPrime Query Rules
+
+Applies to every `query_dataprime` call, both entry points. Every row below was verified against production on 2026-08-12 with a known-positive control.
+
+**An empty result set is a query bug until proven otherwise.** Before reporting "no data": sample the raw event with `source logs | limit 5` over the same window and tier, confirm every field path you filtered on actually exists in that record, confirm the tier is right, and read any compile warning in the response.
+
+| Gotcha | Rule |
+|--------|------|
+| Full-text match | `$d ~~ 'phrase'` searches the whole document; `$d.<path>:string.contains('phrase')` searches one field — **both work**. Only `text contains …` is rejected (`Invalid query or parameters`). Verified: `~~` 80,733 vs `.contains()` 80,544 on the same window; the gap is `~~` also matching other fields. |
+| Tier | **Backend service logs are in `TIER_ARCHIVE`; RUM logs (`cx_rum`) are in `TIER_FREQUENT_SEARCH`.** Wrong tier returns a clean zero with **no warning** — a false "no errors". Verified: `applicationname == 'backend'` returned **0** in frequent and **70,388,574** in archive over the same 6h window. Set `tier` explicitly per source. |
+| Severity | Compare against the **bare enum**: `$m.severity == ERROR`. A quoted literal matches **zero rows in either case** — both `'ERROR'` and `'Error'` return nothing (with only a deprecation warning, no error) even though the value *displays* as title-case `Error` in `groupby` output. Valid enums: `DEBUG, VERBOSE, INFO, WARNING, ERROR, CRITICAL`. |
+| Function names are case-sensitive | `roundTime($m.timestamp, 1h)` works. `roundtime(...)` fails with "Invalid query or parameters". |
+| No timestamp formatting | Bucketed time returns a raw nanosecond epoch (e.g. `1786492800000000000`). There is no formatting function — convert when writing the report, not in the query. |
+| Time window | Always set `endDate` explicitly. Omitting it clamps the window to **exactly 15 minutes from `startDate`** and emits `Time Range Warning: End of time range is set to: …`. Verified: 31,279 records clamped vs 648,815 for the full 6h window. |
+| String literals | Single quotes only — double quotes fail with `Invalid query or parameters`. |
+| Environment | Always filter environment explicitly — every environment shares the index. **`production` is not the only production cluster.** Values in a 6h archive sample: `production` 67.8M, `integration` 8.6M, `devops` 1.09M, `stage` 654K, `production-ops` 613K, `production-product` 183K, and **`null` 21.8M (24% of records carry no cluster label at all)**. A filter of `== 'production'` silently drops production-ops, production-product, and every null-cluster record. RUM has no `k8s_cluster_name` — use `$d.cx_rum.environment`. |
+| Bad field paths | A non-existent path returns 0 rows plus `Compile Warning: keypath does not exist at [x:y-x:z]`, naming the path — never an error. **Read the warning: an empty result carrying it is a typo, not a finding.** `choose` and `groupby` work normally on correct paths. |
 
 ## MCP Tool Quick Reference
 
